@@ -1,0 +1,82 @@
+do{
+    var username, password, login, presensi = 0, pilih, translate
+    print("Masukkan username : "); input(username)
+    print("Masukkan password : "); input(password)
+
+    db.open(data_logistik.txt)
+
+    if(username == data_logistik.txt && username == data_logistik.txt){
+        db.open(presensi_log.txt)
+        presensi += 1
+        db.save(presensi_log.txt, presensi)
+        print("MENU TUGAS LOGISTIK : ")
+        print("1. UPDATE STOK BARANG")
+        print("2. UPDATE HARGA BARANG")
+        print("3. KELUAR AKUN")
+        print("SILAHKAN PILIH : ") input(pilih)
+
+        switch (pilih){
+            var choose
+            case 1 : 
+            do{
+                print("UPDATE STOK BARANG")
+                var kode_brg, stok_brg
+                db.open(stok_brg.txt)
+                print("MASUKKAN KODE BARANG : ") input(kode_brg)
+                print("MASUKKAN STOK BARANG : ") input(stok_brg)
+                db.edit(stok_brg.txt, kode_brg, stok_brg)
+                db.save(stok_brg.txt)
+                print("LANJUT MENGUBAH STOK? (Y/N) :") input(choose)
+
+                if(choose == 'Y'){
+                    translate = true
+                }if(choose != 'Y'){
+                    translate = false
+                }
+            }while(translate == true)
+
+            case 2 :
+            do{
+                print("UPDATE HARGA BARANG")
+                var kode_brg, harga_brg
+                db.open(harga_brg.txt)
+                print("MASUKKAN KODE BARANG : ") input(kode_brg)
+                print("MASUKKAN HARGA BARANG : ") input(harga_brg)
+                db.edit(harga_brg.txt, kode_brg, harga_brg)
+                db.save(harga_brg.txt)
+                print("LANJUT MENGUBAH HARGA BARANG? (Y/N) :") input(choose)
+
+                if(choose == 'Y'){
+                    translate = true
+                }if(choose != 'Y'){
+                    translate = false
+                }
+            }while(translate==true)
+            case 3 :
+                print("KELUAR")
+                print("APA ANDA YAKIN INGIN KELUAR DARI AKUN? : ") input(login)
+                
+                if(login == 'Y'){
+                    login = true
+                }if(login == 'N'){
+                    login = false
+                }
+            default :
+            do{
+                print("PILIHAN SALAH! COBA LAGI")
+            }while(pilih != 1 || pilih != 2 || pilih != 3)
+        }while((pilih != 1 || pilih != 2 || pilih != 3) || login == true)
+    }
+    
+    else{
+        var salah = 0
+        do{
+            print("PASSWORD SALAH! COBA LAGI")
+            salah += 1
+
+            if(salah > 3){
+                print("USERNAME ATAU PASSWORD SALAH! SILAHKAN KONTAK ADMIN UNTUK RESET PASSWORD")
+            }
+        }while(salah < 3)
+    }
+}while(login == true)

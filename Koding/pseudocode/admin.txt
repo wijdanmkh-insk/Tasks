@@ -1,0 +1,279 @@
+var username, password, role, change_usn, change_pass, lanjut, translate
+
+do{
+    var username, password, login, presensi = 0, pilih, translate
+    print("Masukkan username : "); input(username)
+    print("Masukkan password : "); input(password)
+
+    if(username == "admin" && password == "admin"){
+        db.open(presensi_adm.txt)
+        presensi += 1
+        db.save(presensi_adm.txt, presensi)
+        print("MENU TUGAS ADMIN : ")
+        print("1. GANTI SANDI")
+        print("2. KELOLA AKUN")
+        print("3. KELUAR AKUN")
+        print("SILAHKAN PILIH : ") input(pilih)
+
+        switch(pilih){
+            case 1 :
+            var keluar
+            do{
+                do{
+                    print("GANTI SANDI")
+                    print("MENAMPILKAN ROLE")
+                    print("1 KASIR")
+                    print("2 LOGISTICIAN")
+                    print("3. MANAGER")
+                    print("4. Keluar dari menu")
+
+                    print("PILIH ROLE YANG AKAN DIGANTI SANDINYA : ") input(role)
+                    
+                    switch (role):
+                    case 1 : 
+
+                    do{
+                        db.open(data_kasir.txt)
+                        print("MASUKKAN USERNAME KASIR : ") input(change_usn)
+                        print("MASUKKAN PASSWORD PENGGANTI : ") input(change_pass)
+                        db.edit(data_kasir.txt,change_usn,change_pass)
+                        db.save(data_kasir.txt)
+                        print("DATA BERHASIL DISIMPAN")
+                        print("LANJUT? (Y/N)") input(lanjut)
+
+                        if(lanjut == 'Y'){
+                            translate = true
+                        }else{
+                            translate = false
+                        }
+                    }while(translate == true)
+
+                    case 2 :
+                    do{
+                        db.open(data_log.txt)
+                        print("MASUKKAN USERNAME LOGISTICIAN : ") input(change_usn)
+                        print("MASUKKAN PASSWORD PENGGANTI : ") input(change_pass)
+                        db.edit(data_log.txt,change_usn,change_pass)
+                        db.save(data_log.txt)
+                        print("DATA BERHASIL DISIMPAN")
+                        print("LANJUT? (Y/N)") input(lanjut)
+
+                        if(lanjut == 'Y'){
+                            translate = true
+                        }else{
+                            translate = false
+                        }
+                    }while(translate == true)
+
+                    case 3 :
+                    do{
+                        db.open(data_manager.txt)
+                        print("MASUKKAN USERNAME MANAGER : ") input(change_usn)
+                        print("MASUKKAN PASSWORD PENGGANTI : ") input(change_pass)
+                        db.edit(data_manager.txt,change_usn,change_pass)
+                        db.save(data_manager.txt)
+                        print("DATA BERHASIL DISIMPAN")
+                        print("LANJUT? (Y/N)") input(lanjut)
+
+                        if(lanjut == 'Y'){
+                            translate = true
+                        }else{
+                            translate = false
+                        }
+                    }while(translate == true)
+
+                    case 4 :
+                    print("APAKAH ANDA INGIN KELUAR DARI MENU? (Y/N)")
+                    input(keluar)
+
+                    if(keluar == 'Y'){
+                        translate = true
+                    }else{
+                        translate = false
+                    }
+                    default :
+                    print("PILIHAN SALAH! COBA LAGI")
+                }while(translate == false)
+            }while(role != 1 || role != 2 || role != 3 )
+
+            case 2 :
+            var action
+            do{
+                print("KELOLA AKUN")
+                print("MENU KELOLA AKUN : ")
+                print("1. TAMBAH AKUN")
+                print("2. HAPUS AKUN")
+                print("3. KELUAR")
+                print("SILAHKAN PILIH AKSI :") input(action)
+
+            
+                var action1
+                do{
+                    print("KELOLA AKUN")
+                    print("MENU KELOLA AKUN : ")
+                    print("1. TAMBAH AKUN")
+                    print("2. HAPUS AKUN")
+                    print("3. KELUAR")
+                    print("SILAHKAN PILIH AKSI :") input(action)
+
+                    switch (action1){
+                        case 1 : 
+                        print("TAMBAH AKUN")
+                        print("ROLE TERSEDIA : ")
+                        print("1 KASIR")
+                        print("2 LOGISTICIAN")
+                        print("3. MANAGER")
+                        print("4. KELUAR DARI MENU")
+                        print("SILAHKAN PILIH : ") input(role)
+
+                        switch (role){
+                            case 1 :
+                                do{
+                                    db.open(data_kasir)
+                                    print("MASUKKAN USERNAME : ") input(change_usn)
+                                    print("MASUKKAN PASSWORD : ") input(change_pass)
+                                    db.edit(data_kasir,change_usn,change_pass)
+                                    db.save(data_kasir.txt)
+
+                                    print("LANJUT? (Y/N)") input(lanjut)
+
+                                    if(lanjut == 'Y'){
+                                        translate = true
+                                    }else{
+                                        translate = false
+                                    }
+                                }while(translate == true)
+
+                            case 2 :
+                                do{
+                                    db.open(data_log)
+                                    print("MASUKKAN USERNAME : ") input(change_usn)
+                                    print("MASUKKAN PASSWORD : ") input(change_pass)
+                                    db.edit(data_log,change_usn,change_pass)
+                                    db.save(data_log.txt)
+
+                                    print("LANJUT? (Y/N)") input(lanjut)
+
+                                    if(lanjut == 'Y'){
+                                        translate = true
+                                    }else{
+                                        translate = false
+                                    }
+                                }while(translate == true)
+
+                            case 3 :
+                                do{
+                                    db.open(data_manager)
+                                    print("MASUKKAN USERNAME : ") input(change_usn)
+                                    print("MASUKKAN PASSWORD : ") input(change_pass)
+                                    db.edit(data_manager,change_usn,change_pass)
+                                    db.save(data_manager.txt)
+
+                                    print("LANJUT? (Y/N)") input(lanjut)
+
+                                    if(lanjut == 'Y'){
+                                        translate = true
+                                    }else{
+                                        translate = false
+                                    }
+                                }while(lanjut == true)
+                            
+                            case 4 :
+                            print("APAKAH ANDA INGIN KELUAR DARI MENU? (Y/N) : ") input()
+                            if(lanjut == 'Y'){
+                                translate = true
+                            }else{
+                                translate = false
+                            }
+
+
+                        }while(role != 1 || role != 2 || role != 3 || translate == true)  
+                    }
+                case 2 :
+                    print("HAPUS AKUN")
+                    print("ROLE YANG TERSEDIA : ")
+                    print("1. KASIR")
+                    print("2. LOGISTICIAN")
+                    print("3. MANAGER")
+                    print("4. KELUAR DARI MENU")
+
+                    switch (role){
+                            case 1 :
+                                do{
+                                    db.open(data_kasir)
+                                    print("MASUKKAN USERNAME : ") input(change_usn)
+                                    print("MASUKKAN PASSWORD : ") input(change_pass)
+                                    db.del(data_kasir,change_usn,change_pass)
+                                    db.save(data_kasir.txt)
+
+                                    print("LANJUT? (Y/N)") input(lanjut)
+
+                                    if(lanjut == 'Y'){
+                                        translate = true
+                                    }else{
+                                        translate = false
+                                    }
+                                }while(translate == true)
+
+                            case 2 :
+                                do{
+                                    db.open(data_log)
+                                    print("MASUKKAN USERNAME : ") input(change_usn)
+                                    print("MASUKKAN PASSWORD : ") input(change_pass)
+                                    db.del(data_log,change_usn,change_pass)
+                                    db.save(data_log.txt)
+
+                                    print("LANJUT? (Y/N)") input(lanjut)
+
+                                    if(lanjut == 'Y'){
+                                        translate = true
+                                    }else{
+                                        translate = false
+                                    }
+                                }while(translate == true)
+
+                            case 3 :
+                                do{
+                                    db.open(data_manager)
+                                    print("MASUKKAN USERNAME : ") input(change_usn)
+                                    print("MASUKKAN PASSWORD : ") input(change_pass)
+                                    db.del(data_manager,change_usn,change_pass)
+                                    db.save(data_manager.txt)
+
+                                    print("LANJUT? (Y/N)") input(lanjut)
+
+                                    if(lanjut == 'Y'){
+                                        translate = true
+                                    }else{
+                                        translate = false
+                                    }
+                                }while(lanjut == true)
+                            
+                            case 4 :
+                            print("APAKAH ANDA INGIN KELUAR DARI MENU? (Y/N) : ") input()
+                            if(lanjut == 'Y'){
+                                translate = true
+                            }else{
+                                translate = false
+                            }
+
+
+                        }while(role != 1 || role != 2 || role != 3 || translate == true)  
+                    }
+
+                case 3 :
+                    do{
+                        print("APAKAH ANDA YAKIN INGIN KELUAR AKUN? (Y/N) : ") input(keluar)
+                        if(keluar == 'Y'){
+                            translate = false
+                        }if(keluar == 'N'){
+                            translate = true
+                        }else{
+                            print("PILIHAN SALAH! COBA LAGI!")
+                        }
+                    }while(translate != 'Y' || translate != 'N')
+            }while(action != 1 || action != 2 || action != 3)
+        }
+
+    }
+}while(translate == true)

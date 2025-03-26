@@ -1,0 +1,1 @@
+printf("%c %c", input[fst], input[lst]);
